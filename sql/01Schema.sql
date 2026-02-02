@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `EMAIL` varchar(120) DEFAULT NULL,
   `LOGININFO` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`AdminID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `AdminID` int DEFAULT NULL,
   PRIMARY KEY (`AccountNo`),
   KEY `AdminID` (`AdminID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 DROP TABLE IF EXISTS `employee`;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `LName` varchar(50) DEFAULT NULL,
   `EmploymentDate` date DEFAULT NULL,
   PRIMARY KEY (`SSN`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Table structure for table `employee_skill`
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `employee_skill` (
   `SkillCode` int NOT NULL,
   PRIMARY KEY (`SSN`,`SkillCode`),
   KEY `SkillCode` (`SkillCode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE IF NOT EXISTS `equipment` (
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `equipment` (
   `PurchaseCost` decimal(10,2) DEFAULT NULL,
   `SerialNo` int NOT NULL,
   PRIMARY KEY (`SerialNo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `material` (
   `Name` varchar(50) DEFAULT NULL,
   `DefaultUnitPrice` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`MaterialID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `material_task` (
   `UnitPriceSnapshot` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`TaskNo`,`MaterialID`),
   KEY `MaterialID` (`MaterialID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `priority` (
   `Description` varchar(200) DEFAULT NULL,
   `PriorityName` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`PriorityID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `servicerequest` (
   PRIMARY KEY (`RequestNo`),
   KEY `AccountNo` (`AccountNo`),
   KEY `PriorityID` (`PriorityID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Table structure for table `skill`
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `skill` (
   `SkillCode` int NOT NULL,
   `SkillName` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`SkillCode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   `ActualAmount` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`TaskNo`),
   KEY `RequestNo` (`RequestNo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `task_employee` (
   `HoursWorked` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`SSN`,`TaskNo`),
   KEY `TaskNo` (`TaskNo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `task_equipment` (
   `ReleaseDate` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`SerialNo`,`TaskNo`),
   KEY `TaskNo` (`TaskNo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 

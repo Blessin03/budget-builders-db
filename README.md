@@ -24,3 +24,14 @@ This repository is based on an academic database project. All original submissio
 
 **Any enhancements, restructuring, or extensions are implemented outside of this directory to maintain academic integrity.**
 
+## Run Order
+
+I run the SQL files in this order on a fresh database:
+
+1. sql/01_schema.sql
+2. sql/04_seed.sql
+3. sql/02_constraints.sql
+4. sql/03_views.sql
+5. sql/05_reports.sql
+
+Run FK tests with tests/00_fk_integrity.sql.
